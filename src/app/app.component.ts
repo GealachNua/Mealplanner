@@ -7,13 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'mealplanner';
-    menuRecipe: boolean;
-    menuList: boolean;
+    loadedFeature = 'recipe';
 
-
-    onMenuSelect(recipeBool: {recipe: boolean, list: boolean}) {
-        this.menuRecipe = recipeBool.recipe;
-        this.menuList = recipeBool.list;
+    onNavigate(feature: string) {
+        this.loadedFeature = feature;
     }
 }
 

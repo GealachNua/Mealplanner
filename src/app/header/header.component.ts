@@ -6,24 +6,15 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-    @Output() menuBool = new EventEmitter<{recipe: boolean, list: boolean}>();
+    @Output() featureSelected = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit() {
   }
- onRecipeSelected() {
-     this.menuBool.emit({
-         recipe: true,
-         list: false,
-     });
- }
 
-onListSelected() {
-    this.menuBool.emit({
-        recipe: false,
-        list: true,
-    });
-} 
+ onSelect(feature: string) {
+     this.featureSelected.emit(feature);
+ }
 
 }
