@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'mealplanner';
+    menuRecipe: boolean;
+    menuList: boolean;
+
+
+    onMenuSelect(recipeBool: {recipe: boolean, list: boolean}) {
+        this.menuRecipe = recipeBool.recipe;
+        this.menuList = recipeBool.list;
+    }
 }
+
