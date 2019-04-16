@@ -12,16 +12,15 @@ export class RecipeListComponent implements OnInit {
         new Recipe('A Test Recipe', 'This is simpley a test', 'https://wereparents.com/wp-content/uploads/2012/09/IMG_2775.jpg'),
         new Recipe('Havermout pap', 'Havermout met melk. Daarnaast youghurt', 'https://blog.xxlnutrition.com/wp-content/uploads/2019/02/Havermout-Header-1024x536.jpg')
     ];
-    @Output() selectedRecipe = new EventEmitter<{recipe: Recipe}>(); 
+    @Output() recipeWasSelected = new EventEmitter<Recipe>(); 
 
     constructor() { }
 
   ngOnInit() {
   }
 
-  onSelectedRecipe(recipe){
-    this.selectedRecipe.emit(recipe);
-    console.log(recipe);
+  onRecipeSelected(recipe: Recipe){
+    this.recipeWasSelected.emit(recipe);
   }
 
 }
