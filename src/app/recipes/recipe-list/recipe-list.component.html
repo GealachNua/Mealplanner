@@ -9,6 +9,7 @@
       <!-- recipe hier is de @Input() recipe uit recipe-item.component.ts -->
     <app-recipe-item 
         *ngFor="let recipeEl of recipes"
-        [recipe]="recipeEl"></app-recipe-item>
+        [recipe]="recipeEl"
+        (click)="onSelectedRecipe(recipeEl)"></app-recipe-item>
     </div>
 </div>
