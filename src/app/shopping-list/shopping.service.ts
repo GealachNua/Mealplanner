@@ -22,4 +22,14 @@ export class ShoppingService {
     this.ingredientsChanged.emit(this.ingredients.slice());
   }
 
+  addIngredients(ingredients: Ingredient[]) {
+    // For loop is een werkende oplossing, maar dit emits veel events.
+    // for (let ingredient of ingredients) {
+    //   this.onIngredientAdded(ingredient);
+    // }
+
+    // ES6 spread operator, maakt van een arry van elementen een lijst van elementen.
+    this.ingredients.push(...ingredients);
+    this.ingredientsChanged.emit(this.ingredients.slice());
+  }
 }
