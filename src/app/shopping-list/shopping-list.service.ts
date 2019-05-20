@@ -1,10 +1,11 @@
 
 import { Ingredient } from '../shared/ingredient.model';
-import { EventEmitter } from '@angular/core';
+
+import { Subject } from 'rxjs';
 
 export class ShoppingService {
 
-  ingredientsChanged = new EventEmitter<Ingredient[]>();
+  ingredientsChanged = new Subject<Ingredient[]>();
 
   private ingredients: Ingredient[] = [
     new Ingredient('Banaan', ' 1/2st', 0, 9, 0),
@@ -19,7 +20,7 @@ export class ShoppingService {
   onIngredientAdded(ingredient: Ingredient) {
     this.ingredients.push(ingredient);
     // provides an update of the ingredients array.
-    this.ingredientsChanged.emit(this.ingredients.slice());
+    this.ingredientsChanged.next(this.ingredients.slice());
   }
 
   addIngredients(ingredients: Ingredient[]) {
@@ -30,6 +31,6 @@ export class ShoppingService {
 
     // ES6 spread operator, maakt van een arry van elementen een lijst van elementen.
     this.ingredients.push(...ingredients);
-    this.ingredientsChanged.emit(this.ingredients.slice());
+    this.ingredientsChanged.next(this.ingredients.slice());
   }
 }
